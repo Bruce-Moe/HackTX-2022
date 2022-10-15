@@ -67,13 +67,13 @@ const firebaseConfig = {
   measurementId: "G-W0XM74EGHJ",
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-
 // Images
 import brandWhite from "assets/images/logo-ct.png";
 import brandDark from "assets/images/logo-ct-dark.png";
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app);
 
 export default function App() {
   const [controller, dispatch] = useMaterialUIController();
