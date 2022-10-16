@@ -1,120 +1,71 @@
-import { STATE_LOGIN, STATE_SIGNUP } from "components/AuthForm";
-import GAListener from "components/GAListener";
-import { EmptyLayout, LayoutRoute, MainLayout } from "components/Layout";
-import PageSpinner from "components/PageSpinner";
-import AuthPage from "pages/AuthPage";
-import React, { useState, useEffect } from "react";
-import componentQueries from "react-component-queries";
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
-import "./styles/reduction.scss";
+import React, {Component} from "react";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import "./App.css";
+import {Home} from "./Home";
+import Airlines from "./Airlines";
+import Flights from "./Flights";
+import Airports from "./Airports";
+import {About} from "./About";
+import {PhotoSlay} from "./PhotoSlay";
+import SearchPhotos from "./PhotoSlay/SearchPhotos";
+import {SlayPieChart} from "./PhotoSlay/SlayPieChart";
+import {SlayBubble} from "./PhotoSlay/SlayBubble";
+import {Layout} from "./Component/Layout";
+import {NavBar} from "./Component/NavBar";
+import {AirportInfo} from "./AirportInfo";
+import {FlightInfo} from "./FlightInfo";
+import {AirlineInfo} from "./AirlineInfo";
 
-import { collection, getDocs } from "firebase/firestore";
-import db from "./firebase.config";
 
-// const AlertPage = React.lazy(() => import("pages/AlertPage"));
-// const AuthModalPage = React.lazy(() => import("pages/AuthModalPage"));
-// const BadgePage = React.lazy(() => import("pages/BadgePage"));
-// const ButtonGroupPage = React.lazy(() => import("pages/ButtonGroupPage"));
-// const ButtonPage = React.lazy(() => import("pages/ButtonPage"));
-// const CardPage = React.lazy(() => import("pages/CardPage"));
-// const ChartPage = React.lazy(() => import("pages/ChartPage"));
-// const DropdownPage = React.lazy(() => import("pages/DropdownPage"));
-// const FormPage = React.lazy(() => import("pages/FormPage"));
-// const InputGroupPage = React.lazy(() => import("pages/InputGroupPage"));
-// const ModalPage = React.lazy(() => import("pages/ModalPage"));
-// const ProgressPage = React.lazy(() => import("pages/ProgressPage"));
-// const TablePage = React.lazy(() => import("pages/TablePage"));
-// const TypographyPage = React.lazy(() => import("pages/TypographyPage"));
-// const WidgetPage = React.lazy(() => import("pages/WidgetPage"));
-const HomePage = React.lazy(() => import("pages/HomePage"));
-const AboutPage = React.lazy(() => import("pages/AboutPage"));
-const ContractsPage = React.lazy(() => import("pages/ContractPage"));
-const ContractsPage2 = React.lazy(() => import("pages/ContractPage2"));
+function App() {
 
-const getBasename = () => {
-  return `/${process.env.PUBLIC_URL.split("/").pop()}`;
-};
+    return (
+        <React.Fragment>
+            <NavBar/>
+            <Router>
+                <Switch>
+                    <Route path="/photoslay" exact>
+                        <Layout><PhotoSlay/></Layout>
+                    </Route>
+                    <Route path="/photoslay/searchphotos" exact>
+                        <Layout><SearchPhotos/></Layout>
+                    </Route>
+                    <Route path="/photoslay/piechart" exact>
+                        <Layout><SlayPieChart/></Layout>
+                    </Route>
+                    <Route path="/photoslay/bubblechart" exact>
+                        <Layout><SlayBubble/></Layout>
+                    </Route>
+                    <Route path="/airlines" exact>
+                        <Layout><Airlines/></Layout>
+                    </Route>
+                    <Route path="/airlines/:id">
+                        <Layout><AirlineInfo/></Layout>
+                    </Route>
+                    <Route path="/flights" exact>
+                        <Layout> <Flights/></Layout>
+                    </Route>
+                    <Route path="/flights/:id">
+                        <Layout> <FlightInfo/></Layout>
+                    </Route>
+                    <Route path="/airports" exact>
+                        <Layout> <Airports/></Layout>
+                    </Route>
+                    <Route path="/airports/:id">
+                        <Layout> <AirportInfo/></Layout>
+                    </Route>
+                    <Route path="/about">
+                        <Layout> <About/></Layout>
+                        <Route path="/api"></Route>
+                    </Route>
+                    <Route path="/" exact> <Home/>
+                    </Route>
 
-function App(props) {
-  const [stdContracts, setStdContracts] = useState([]);
+                </Switch>
+            </Router>
+        </React.Fragment>
+    );
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const querySnapshot = await getDocs(collection(db, "standard-contracts"));
-      querySnapshot.forEach((item) => {
-        console.log(item.id + " => " + item.data().content);
-        setStdContracts([...stdContracts, item.data()]);
-      });
-    };
-    fetchData();
-  }, []);
-
-  return (
-    <BrowserRouter basename={getBasename()}>
-      <GAListener>
-        <Switch>
-          <LayoutRoute
-            exact
-            path="/login"
-            layout={EmptyLayout}
-            component={(props) => <AuthPage {...props} authState={STATE_LOGIN} />}
-          />
-          <LayoutRoute
-            exact
-            path="/signup"
-            layout={EmptyLayout}
-            component={(props) => <AuthPage {...props} authState={STATE_SIGNUP} />}
-          />
-
-          <MainLayout breakpoint={props.breakpoint}>
-            <React.Suspense fallback={<PageSpinner />}>
-              <Route exact path="/" component={HomePage} />
-              <Route exact path="/about" component={AboutPage} />
-              <Route exact path="/std-contracts" component={ContractsPage} />
-              <Route exact path="/other-contracts" component={ContractsPage2} />
-              {/* <Route exact path="/widgets" component={WidgetPage} />
-              <Route exact path="/typography" component={TypographyPage} />
-              <Route exact path="/alerts" component={AlertPage} />
-              <Route exact path="/tables" component={TablePage} />
-              <Route exact path="/badges" component={BadgePage} />
-              <Route exact path="/button-groups" component={ButtonGroupPage} />
-              <Route exact path="/dropdowns" component={DropdownPage} />
-              <Route exact path="/progress" component={ProgressPage} />
-              <Route exact path="/modals" component={ModalPage} />
-              <Route exact path="/forms" component={FormPage} />
-              <Route exact path="/input-groups" component={InputGroupPage} />
-              <Route exact path="/charts" component={ChartPage} />  */}
-            </React.Suspense>
-          </MainLayout>
-          <Redirect to="/" />
-        </Switch>
-      </GAListener>
-    </BrowserRouter>
-  );
 }
 
-const query = ({ width }) => {
-  if (width < 575) {
-    return { breakpoint: "xs" };
-  }
-
-  if (576 < width && width < 767) {
-    return { breakpoint: "sm" };
-  }
-
-  if (768 < width && width < 991) {
-    return { breakpoint: "md" };
-  }
-
-  if (992 < width && width < 1199) {
-    return { breakpoint: "lg" };
-  }
-
-  if (width > 1200) {
-    return { breakpoint: "xl" };
-  }
-
-  return { breakpoint: "xs" };
-};
-
-export default componentQueries(query)(App);
+export default App;
