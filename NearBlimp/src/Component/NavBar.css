@@ -12,12 +12,10 @@
 .navbar .title {
     font-size: 60px;
     color: #25272a;
-    font-family: "Homenaje", sans-serif;
 }
 
 .navbar .link {
     margin-right: 45px;
-    font-family: "Homenaje", sans-serif;
     font-size: 40px;
     color: #25272a !important;
 }
