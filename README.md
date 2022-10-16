@@ -25,6 +25,6 @@ NearBlimp's next steps are to improve the UI drastically and incorporate data in
 Additionally, we plan to automate smart contract data retrieval in the future, both for standard contracts and audited contracts, by scraping data from various sources including the NEAR data lake repository, the NEP repository, dApp documentation sites, and more.
 
 ## Links
-[Website](nearblimp.web.app)
+[Website](https://nearblimp.web.app/))
 
 [Documentation](https://docs.google.com/document/d/1Q8LxwZ2B6_SK3m1D3ay8ZN8rkvpPY7kc8x3hU01QcgY/edit)
