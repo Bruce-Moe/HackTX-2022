@@ -1,29 +1,17 @@
 body {
   padding-top: 100px;
-  /* color: #ffffff; */
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   text-align: center;
-  /* background: linear-gradient(
-    -45deg,
-    rgb(1, 4, 46),
-    rgb(17, 9, 50),
-    rgb(75, 32, 61),
-    rgb(136, 58, 72)
-  ); */
-  background-size: 1000% 1000%;
-  animation: gradient 15s ease infinite;
+  background-color: rgb(249, 249, 249);
+  color: rgb(37, 39, 42);
 }
 
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+ul {
+  list-style: none;
+}
+
+li {
+  list-style: none;
 }
 
 .sub {
