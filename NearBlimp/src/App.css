@@ -1,33 +1,39 @@
 body {
-    padding-top: 100px;
-    color: #ffffff;
-    font-family: "Inter";
-    text-align: center;
-    background: linear-gradient(-45deg, rgb(1,4,46), rgb(17,9,50), rgb(75,32,61), rgb(136,58,72));
-	background-size: 1000% 1000%;
-    animation: gradient 15s ease infinite;
+  padding-top: 100px;
+  color: #ffffff;
+  font-family: "Inter";
+  text-align: center;
+  background: linear-gradient(
+    -45deg,
+    rgb(1, 4, 46),
+    rgb(17, 9, 50),
+    rgb(75, 32, 61),
+    rgb(136, 58, 72)
+  );
+  background-size: 1000% 1000%;
+  animation: gradient 15s ease infinite;
 }
 
 @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .sub {
-    color: #00c1dd;
+  color: #00c1dd;
 }
 
 h1 {
-    padding-top: 50px;
+  padding-top: 50px;
 }
 
 h2 {
-    padding-top: 25px;
+  padding-top: 25px;
 }

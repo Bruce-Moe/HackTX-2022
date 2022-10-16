@@ -1,25 +1,42 @@
 .navbar {
-    padding-top: 0px;
-    padding-bottom: 0px;
-    border-bottom: 3px solid white;
-    background: rgb(249,249,249);
-    color: #25272a;
-    width: 100%;
-    z-index: 2;
-    flex-direction: column;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border-bottom: 3px solid white;
+  background: rgb(249, 249, 249);
+  color: #25272a;
+  width: 100%;
+  z-index: 2;
+  flex-direction: column;
 }
 
 .navbar .title {
-    font-size: 30px;
-    color: #25272a;
+  font-size: 30px;
+  color: #25272a;
 }
 
 .navbar .link {
-    padding-bottom: 0px;
-    padding-top: 0px;
-    margin-right: 15px;
-    font-size: 20px;
-    color: #25272a !important;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  margin-right: 15px;
+  font-size: 20px;
+  color: #25272a !important;
 }
 
+.nav-link {
+  display: inline;
+}
 
+.navbar-light .navbar-nav .nav-link {
+  color: black;
+}
+
+.dropdown {
+  padding-bottom: 0px;
+  padding-top: 0px;
+  margin-right: 15px;
+  font-size: 20px;
+}
+
+.dropdown-item {
+  width: auto;
+}
