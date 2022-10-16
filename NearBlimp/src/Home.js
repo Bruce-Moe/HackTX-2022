@@ -12,8 +12,8 @@ export const Home = () => {
                 <video id="background-video" loop autoPlay muted>
                     <source src={Video} type="video/mp4" />
                     <source src={Video} type="video/ogg" />
-			    Your browser does not support the video tag.
-			</video>
+                    Your browser does not support the video tag.
+                </video>
             </div>
 
 
