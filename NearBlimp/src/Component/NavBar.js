@@ -5,9 +5,7 @@ import "../App.css";
 export const NavBar = () => (
     <Navbar className="navbar" fixed="top" expand="lg">
         <Navbar.Brand href="/">
-            <i className="fa fa-plane">
-                <span className="title">NearBlimp</span>
-            </i>
+            <span className="title">NearBlimp</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

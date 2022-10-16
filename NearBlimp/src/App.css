@@ -1,6 +1,6 @@
     body {
         padding-top: 200px;
-        background-color: rgb(30, 49, 73);
+        background-color: rgb(249,249,249);
         color: #25272a;
         font-family: "Homenaje", sans-serif;
     }
@@ -10,19 +10,16 @@
         top: 0;
         margin-bottom: -15px;
         border-bottom: 3px solid white;
-        background: rgb(30, 49, 73);
+        background: rgb(249,249,249);
         color: #25272a;
         width: 100%;
         z-index: 2;
         flex-direction: column;
     }
     
-    .navbar .fa-plane {
+    .navbar .title {
         font-size: 60px;
         color: #25272a;
-    }
-    
-    .navbar .title {
         font-family: "Homenaje", sans-serif;
     }
     
