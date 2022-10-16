@@ -1,7 +1,6 @@
 import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import "../App.css";
-import "../search.css";
 
 export const NavBar = () => (
     <Navbar className="navbar" fixed="top" expand="lg">
