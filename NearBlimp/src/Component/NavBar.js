@@ -1,11 +1,12 @@
 import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import "../App.css";
+import "./NavBar.css"
 
 export const NavBar = () => (
     <Navbar className="navbar" fixed="top" expand="lg">
         <Navbar.Brand href="/">
-            <span className="title">NearBlimp</span>
+            <span className="title"><span className="sub">Near</span>Blimp</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

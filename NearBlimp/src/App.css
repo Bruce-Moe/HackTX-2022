@@ -1,36 +1,19 @@
-    body {
-        padding-top: 200px;
-        background-color: rgb(249,249,249);
-        color: #25272a;
-        font-family: "Homenaje", sans-serif;
-    }
-    /*----------------------NavBar----------------------*/
-    
-    .navbar {
-        top: 0;
-        margin-bottom: -15px;
-        border-bottom: 3px solid white;
-        background: rgb(249,249,249);
-        color: #25272a;
-        width: 100%;
-        z-index: 2;
-        flex-direction: column;
-    }
-    
-    .navbar .title {
-        font-size: 60px;
-        color: #25272a;
-        font-family: "Homenaje", sans-serif;
-    }
-    
-    .navbar .link {
-        margin-right: 45px;
-        font-family: "Homenaje", sans-serif;
-        font-size: 40px;
-        color: #25272a !important;
-    }
-    
-    .navbar .Form {
-        margin-right: 45px;
-    }
+body {
+    padding-top: 200px;
+    background-color: rgb(249,249,249);
+    color: #25272a;
+    font-family: "Inter", sans-serif;
+    text-align: center;
+}
 
+.sub {
+    color: #00c1dd;
+}
+
+h1 {
+    padding-top: 50px;
+}
+
+h2 {
+    padding-top: 25px;
+}
