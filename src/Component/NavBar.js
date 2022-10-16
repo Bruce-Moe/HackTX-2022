@@ -20,6 +20,7 @@ export const NavBar = ({ stdContracts, auditedContracts }) => {
             Home
           </Nav.Link>
           <NavDropdown title="Standard Contracts" className="dropdown">
+            <NavDropdown.Item href={`/std-contracts`}>Overview</NavDropdown.Item>
             {contracts.map(contract => {
               return (
                 <NavDropdown.Item
@@ -29,6 +30,7 @@ export const NavBar = ({ stdContracts, auditedContracts }) => {
             })}
           </NavDropdown>
           <NavDropdown className="dropdown" title="Audited Contracts">
+            <NavDropdown.Item href={`/audited-contracts`}>Overview</NavDropdown.Item>
             {contractsAudited.map(contract => {
               return (
                 <NavDropdown.Item

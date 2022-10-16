@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import { Home } from "./Home";
 import { About } from "./About";
-import { StandardContracts } from "./StandardContracts";
-import { AuditedContracts } from "./AuditedContracts";
+import { StandardContractOverview } from "./StandardContractOverview";
+import { AuditedContractOverview } from "./AuditedContractOverview";
 import { ContractInfo } from "./Component/ContractInfo";
 import { AuditedContractInfo } from "./Component/AuditedContractInfo";
 import { Layout } from "./Component/Layout";
@@ -64,14 +64,14 @@ function App() {
           <Route path="/std-contracts">
             <Layout>
               {" "}
-              <StandardContracts />
+              <StandardContractOverview />
             </Layout>
             <Route path="/api"></Route>
           </Route>
           <Route path="/audited-contracts">
             <Layout>
               {" "}
-              <AuditedContracts />
+              <AuditedContractOverview />
             </Layout>
             <Route path="/api"></Route>
           </Route>
