@@ -12,7 +12,9 @@ export const NavBar = () => (
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
                 <Nav.Link className="link" href="/">Home</Nav.Link>
+                <Nav.Link className="link" href="/contracts">Contracts</Nav.Link>
                 <Nav.Link className="link" href="/about">About</Nav.Link>
+                <Nav.Link className="link" href="https://near.org/">Near</Nav.Link>
             </Nav>
         </Navbar.Collapse>
     </Navbar>
