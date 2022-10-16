@@ -1,10 +1,9 @@
 import React from "react";
-import { Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
+import { Nav, Navbar } from "react-bootstrap";
 import "../App.css";
 import "../search.css";
 
 export const NavBar = () => (
-
     <Navbar className="navbar" fixed="top" expand="lg">
         <Navbar.Brand href="/">
             <i className="fa fa-plane">
