@@ -5,6 +5,7 @@ import "./NavBar.css";
 
 export const NavBar = ({ stdContracts, auditedContracts }) => {
   const [contracts] = useState(stdContracts);
+  const [contractsAudited] = useState(auditedContracts);
   return (
     <Navbar className="navbar" fixed="top" expand="lg">
       <Navbar.Brand href="/">
@@ -27,7 +28,15 @@ export const NavBar = ({ stdContracts, auditedContracts }) => {
               );
             })}
           </NavDropdown>
-          <NavDropdown className="dropdown" title="Audited Contracts"></NavDropdown>
+          <NavDropdown className="dropdown" title="Audited Contracts">
+            {contractsAudited.map(contract => {
+              return (
+                <NavDropdown.Item
+                  href={`/audited-contracts/${contract.id}`}
+                >{`${contract.name}`}</NavDropdown.Item>
+              );
+            })}
+          </NavDropdown>
           <Nav.Link className="link" href="/about">
             About
           </Nav.Link>

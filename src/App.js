@@ -6,6 +6,7 @@ import { About } from "./About";
 import { StandardContracts } from "./StandardContracts";
 import { AuditedContracts } from "./AuditedContracts";
 import { ContractInfo } from "./Component/ContractInfo";
+import { AuditedContractInfo } from "./Component/AuditedContractInfo";
 import { Layout } from "./Component/Layout";
 import { NavBar } from "./Component/NavBar";
 import { collection, getDocs } from "firebase/firestore";
@@ -13,23 +14,27 @@ import db from "./firebase.config";
 
 function App() {
   const [stdContracts, setStdContracts] = useState([]);
-  // const [auditedContracts, setAuditedContracts] = useState([]);
+  const [auditedContracts, setAuditedContracts] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const querySnapshot = await getDocs(collection(db, "standard-contracts"));
+    const fetchData = async name => {
+      const querySnapshot = await getDocs(collection(db, name));
       querySnapshot.forEach(doc => {
         // doc.data() is never undefined for query doc snapshots
-        console.log(doc.id, " => ", doc.data());
-        setStdContracts(stdContracts.push({ name: doc.data().name, id: doc.id }));
+        if (name.includes("standard"))
+          setStdContracts(stdContracts.push({ name: doc.data().name, id: doc.id }));
+        else {
+          setAuditedContracts(auditedContracts.push({ name: doc.data().name, id: doc.id }));
+        }
       });
     };
-    fetchData();
+    fetchData("standard-contracts");
+    fetchData("audited-contracts");
     // eslint-disable-next-line
   }, []);
   return (
     <React.Fragment>
-      <NavBar stdContracts={stdContracts} />
+      <NavBar stdContracts={stdContracts} auditedContracts={auditedContracts} />
       <Router>
         <Switch>
           <Route path="/" exact>
@@ -52,7 +57,7 @@ function App() {
           <Route path="/audited-contracts/:id">
             <Layout>
               {" "}
-              <ContractInfo />
+              <AuditedContractInfo />
             </Layout>
             <Route path="/api"></Route>
           </Route>
